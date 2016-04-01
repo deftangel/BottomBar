@@ -53,7 +53,7 @@ import java.util.HashMap;
  */
 public class BottomBar extends FrameLayout implements View.OnClickListener, View.OnLongClickListener {
     private static final long ANIMATION_DURATION = 150;
-    private static final int MAX_FIXED_TAB_COUNT = 3;
+    private static final int MAX_FIXED_TAB_COUNT = 4;
 
     private static final String STATE_CURRENT_SELECTED_TAB = "STATE_CURRENT_SELECTED_TAB";
     private static final String STATE_BADGE_STATES_BUNDLE = "STATE_BADGE_STATES_BUNDLE";
@@ -1086,8 +1086,7 @@ public class BottomBar extends FrameLayout implements View.OnClickListener, View
             if (mIsShiftingMode && !mIsTabletMode) {
                 layoutResource = R.layout.bb_bottom_bar_item_shifting;
             } else {
-                layoutResource = mIsTabletMode ?
-                        R.layout.bb_bottom_bar_item_fixed_tablet : R.layout.bb_bottom_bar_item_fixed;
+                layoutResource = R.layout.bb_bottom_bar_item_fixed;
             }
 
             View bottomBarTab = View.inflate(mContext, layoutResource, null);
@@ -1095,17 +1094,15 @@ public class BottomBar extends FrameLayout implements View.OnClickListener, View
 
             icon.setImageDrawable(bottomBarItemBase.getIcon(mContext));
 
-            if (!mIsTabletMode) {
-                TextView title = (TextView) bottomBarTab.findViewById(R.id.bb_bottom_bar_title);
-                title.setText(bottomBarItemBase.getTitle(mContext));
+            TextView title = (TextView) bottomBarTab.findViewById(R.id.bb_bottom_bar_title);
+            title.setText(bottomBarItemBase.getTitle(mContext));
 
-                if (mPendingTextAppearance != -1) {
-                    MiscUtils.setTextAppearance(title, mPendingTextAppearance);
-                }
+            if (mPendingTextAppearance != -1) {
+                MiscUtils.setTextAppearance(title, mPendingTextAppearance);
+            }
 
-                if (mPendingTypeface != null) {
-                    title.setTypeface(mPendingTypeface);
-                }
+            if (mPendingTypeface != null) {
+                title.setTypeface(mPendingTypeface);
             }
 
             if (mIsDarkTheme || (!mIsTabletMode && mIsShiftingMode)) {

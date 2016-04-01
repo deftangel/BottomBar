@@ -17,8 +17,4 @@
         android:id="@+id/bb_menu_friends"
         android:icon="@drawable/ic_friends"
         android:title="Friends" />
-    <item
-        android:id="@+id/bb_menu_food"
-        android:icon="@drawable/ic_restaurants"
-        android:title="Food" />
 </menu>

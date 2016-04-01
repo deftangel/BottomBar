@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
         mBottomBar.mapColorForTab(1, 0xFF5D4037);
         mBottomBar.mapColorForTab(2, "#7B1FA2");
         mBottomBar.mapColorForTab(3, "#FF5252");
-        mBottomBar.mapColorForTab(4, "#FF9800");
     }
 
     private String getMessage(int menuItemId, boolean isReselection) {
@@ -58,9 +57,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.bb_menu_friends:
                 message += "friends";
-                break;
-            case R.id.bb_menu_food:
-                message += "food";
                 break;
         }
 
